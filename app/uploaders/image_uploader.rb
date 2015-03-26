@@ -10,7 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-    storage :fog
+#   storage :fog
   
 
 
@@ -21,7 +21,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
 # Process files as they are uploaded:
-  # process :resize_to_fill => [300, 300]
+  # process :resize_to_fit => [300, 300]
   #
   # def scale(width, height)
   #   # do something

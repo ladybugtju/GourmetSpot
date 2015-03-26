@@ -40,11 +40,14 @@ class RestaurantsController < ApplicationController
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
   def update
+    puts "begin"
     respond_to do |format|
       if @restaurant.update(restaurant_params)
+        puts "did not fail"
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
         format.json { render :show, status: :ok, location: @restaurant }
       else
+        puts "failed"
         format.html { render :edit }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
       end
