@@ -50,3 +50,4 @@ gem 'aws-sdk'
 #gem 'paperclip'
 gem "figaro"
 # gem "mini_magick"
+gem 'devise'
