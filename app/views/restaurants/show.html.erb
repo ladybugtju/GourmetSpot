@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<%= image_tag @restaurant.image_url %>
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+			<div class="col-md-5">
+				<%= image_tag @restaurant.image_url %>
+				<h2> <%= @restaurant.name %></h2>
+				<p> <strong>Address:</strong><%= @restaurant.address %></p>
+				<p><strong>Phone:</strong><%= @restaurant.phone %></p>
+				<p><strong>Website:</strong> <%= link_to @restaurant.website, @restaurant.website %></p>
+				<%= link_to "Write a Review",  new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+			</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @restaurant.phone %>
-</p>
+			<div class="col-md-7">
+				<% if @reviews.blank? %>
+				<h3>No reviews yet. Be the first to write one!</h3>
+                <% else %>
+                <% @reviews.each do |review| %> 
+				<p> <%= review.rating %> </p>
+				<p> <%= review.comment %> </p>
+				<% end %>
+				<% end %>
+			</div>
+</div>
 
-<p>
-  <strong>Website:</strong>
-  <%= @restaurant.website %>
-</p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-Link" %> |
 <%= link_to 'Back', restaurants_path, class: "btn btn-Link" %>
